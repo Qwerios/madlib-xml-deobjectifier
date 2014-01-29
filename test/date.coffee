@@ -1,5 +1,5 @@
 chai          = require "chai"
-deobjectifier = require "../lib/index.js"
+deobjectifier = require "../lib/deobjectifier.js"
 _             = require "underscore"
 moment        = require "moment"
 
@@ -38,7 +38,7 @@ xmlObject =
 # Convert the object to an XML string
 #
 xmlString = deobjectifier.objectToXmlString( xmlObject, "YYYY-MM" )
-console.log( "XML date string", xmlString )
+# console.log( "XML date string", xmlString )
 
 describe( "Deobjectifier [date]", () ->
     describe( "#objectToXmlString()", () ->

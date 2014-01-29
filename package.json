@@ -1,7 +1,7 @@
 {
   "name": "madlib-xml-deobjectifier",
   "description": "Turns output from madlib-xml-deobjectifier back into XML",
-  "main": "lib/index.js",
+  "main": "lib/deobjectifier.js",
   "version": "0.1.0",
   "author": {
     "name": "Mark Doeswijk",
