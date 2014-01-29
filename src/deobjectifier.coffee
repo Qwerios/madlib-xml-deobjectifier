@@ -41,7 +41,7 @@
                 nodeName = "#{nodeValue.$ns}:#{nodeName}"
 
             if nodeValue.$t? and nodeValue.$t isnt ""
-                xml = "<#{nodeName}#{nodeAttributes}>" + formatValue( nodeValue.$t, dateFormat ) + "</#{nodeName}>"
+                xml = "<#{nodeName}#{nodeAttributes}>" + escapeXML( formatValue( nodeValue.$t, dateFormat ) ) + "</#{nodeName}>"
 
             else
                 # Tag containing possible child elements
@@ -62,7 +62,7 @@
             if formattedValue isnt ""
                 # Text/Numeric/Boolean/Date node
                 #
-                xml = "<#{nodeName}>#{formattedValue}</#{nodeName}>"
+                xml = "<#{nodeName}>" + escapeXML( formattedValue ) + "</#{nodeName}>"
             else
                 # Empty tag or unusable nodeValue
                 #
@@ -117,6 +117,21 @@
                 nodeValue = "false"
 
         return nodeValue
+
+    xmlCharactersMap =
+        "<": "&lt;"
+        ">": "&gt;"
+        "&": "&amp;"
+        '"': "&quot;"
+        "'": "&apos;"
+
+    escapeXML = ( value ) ->
+        if _.isString( value )
+            value.replace( /[<>&"']/g, ( char ) ->
+                xmlCharactersMap[ char ]
+            )
+        else
+            return value
 
     # Return and expose the deobjectifier methods
     #
