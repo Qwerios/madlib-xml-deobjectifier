@@ -76,22 +76,22 @@
         nodeAttributes = ""
         if _.isObject( attributes )
             for attributeName, attributeValue of attributes
-
-                # Add optional name space to attribute name
-                #
-                if _.isString( attributeValue.$ns )
-                    attributeName = "#{attributeValue.$ns}:#{attributeName}"
-
-                # Set the attribute value
-                #
-                if attributeValue.$t?
-                    # Strict mode puts attribute value inside a $t
+                if attributeValue?
+                    # Add optional name space to attribute name
                     #
-                    nodeAttributes += " #{attributeName}=\"" + formatValue( attributeValue.$t, dateFormat ) + "\""
-                else
-                    # Smart mode put the value directly into the object key
+                    if _.isString( attributeValue.$ns )
+                        attributeName = "#{attributeValue.$ns}:#{attributeName}"
+
+                    # Set the attribute value
                     #
-                    nodeAttributes += " #{attributeName}=\"" + formatValue( attributeValue, dateFormat ) + "\""
+                    if attributeValue.$t?
+                        # Strict mode puts attribute value inside a $t
+                        #
+                        nodeAttributes += " #{attributeName}=\"" + formatValue( attributeValue.$t, dateFormat ) + "\""
+                    else
+                        # Smart mode put the value directly into the object key
+                        #
+                        nodeAttributes += " #{attributeName}=\"" + formatValue( attributeValue, dateFormat ) + "\""
 
         return nodeAttributes
 
