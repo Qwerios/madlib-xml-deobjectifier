@@ -1,4 +1,4 @@
-# madlib-xml-deobjectifier
+# madlib-xml-deobjectifier [![Build Status](https://travis-ci.org/Qwerios/madlib-xml-deobjectifier.svg?branch=master)](https://travis-ci.org/Qwerios/madlib-xml-deobjectifier)
 Used to turn output from madlib-xml-objectifier into an XML string
 
 
