@@ -70,7 +70,7 @@
 
         return xml
 
-    buildAttributes = ( attributes, dateFormat ) ->
+    buildAttributes = ( attributes, dateFormat = "YYYY-MM-DDTHH:mm:ssZ" ) ->
         # Build attributes
         #
         nodeAttributes = ""
@@ -95,7 +95,7 @@
 
         return nodeAttributes
 
-    formatValue = ( inputValue, dateFormat ) ->
+    formatValue = ( inputValue, dateFormat = "YYYY-MM-DDTHH:mm:ssZ" ) ->
         nodeValue = ""
         if _.isString( inputValue ) or _.isNumber( inputValue )
             # Text/numeric attribute
@@ -118,6 +118,8 @@
 
         return nodeValue
 
+    # The list of character to escape in the XML
+    #
     xmlCharactersMap =
         "<": "&lt;"
         ">": "&gt;"
@@ -133,11 +135,69 @@
         else
             return value
 
-    # Return and expose the deobjectifier methods
+    ###*
+    #   The XML deobjectifier is used to turn a JavaScript XML representation
+    #   back into an XML string. The object representation is assumed to be
+    #   made using madlib-xml-objectifier but it will accept any JavaScript
+    #   object and tries to convert it. Emphasis on tries.
     #
+    #   @author     mdoeswijk
+    #   @module     deobjectifier
+    #   @version    0.1
+    ###
     deobjectifier =
+
+        ###*
+        #   Turns the provided object into an XML string.
+        #   Momentjs is used for date parsing and formatting.
+        #
+        #   @function objectToXmlString
+        #   @param {Object}     inputObject     The object that is to be converted
+        #   @param {String}     [dateFormat]    Optional date formatting for momentjs. Defaults to "YYYY-MM-DDTHH:mm:ssZ"
+        #
+        #   @return {String}    The object rendered as an XML string
+        #
+        ###
         objectToXmlString:      objectToXmlString
+
+        ###*
+        #   Turns the provided object attribute into an XML string.
+        #   Momentjs is used for date parsing and formatting.
+        #
+        #   @function nodeToXmlString
+        #   @param {String}     nodeName        The name of the object attribute
+        #   @param {Moxed}      nodeValue       The value of the object attribute
+        #   @param {String}     [dateFormat]    Optional date formatting for momentjs. Defaults to "YYYY-MM-DDTHH:mm:ssZ"
+        #
+        #   @return {String}    The attribute rendered as an XML string
+        #
+        ###
         nodeToXmlString:        nodeToXmlString
+
+        ###*
+        #   Format the provided object value depending on its type.
+        #   Momentjs is used for date parsing and formatting.
+        #
+        #   @function formatValue
+        #   @param {Object}     inputObject     The object that is to be converted
+        #   @param {String}     [dateFormat]    Optional date formatting for momentjs. Defaults to "YYYY-MM-DDTHH:mm:ssZ"
+        #
+        #   @return {String}    The object rendered as an XML string
+        #
+        ###
         formatValue:            formatValue
+
+        ###*
+        #   Build the attributes and their values for inclusion in an XML tag
+        #   Momentjs is used for date parsing and formatting.
+        #   The attribute structure depends on the madlib-xml-objectifier mode that was used.
+        #
+        #   @function buildAttributes
+        #   @param {Array}      atttributes     An array of objects containing attributes. Depending on the objectifier mode used the format of an attribute value can differ
+        #   @param {String}     [dateFormat]    Optional date formatting for momentjs. Defaults to "YYYY-MM-DDTHH:mm:ssZ"
+        #
+        #   @return {String}    The attributes rendered as an XML string
+        #
+        ###
         buildAttributes:        buildAttributes
 )

@@ -1,19 +1,24 @@
 {
   "name": "madlib-xml-deobjectifier",
-  "description": "Turns output from madlib-xml-deobjectifier back into XML",
+  "description": "Used to turn output from madlib-xml-objectifier into an XML string",
   "main": "lib/deobjectifier.js",
   "version": "0.1.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qwerios/madlib-xml-objectifier.git"
+  },
+  "keywords": [
+    "madlib",
+    "xml",
+    "json"
+  ],
   "author": {
     "name": "Mark Doeswijk",
     "email": "mark.doeswijk@marviq.com",
-    "url": "https://github.com/Marviq"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://stash.marviq.com/scm/mad/xml-deobjectifier.git"
+    "url": "https://github.com/Qwerios"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "command -v grunt >/dev/null 2>&1 && grunt test || { echo >&2 'Grunt is not installed'; }",
     "prepublish": "command -v grunt >/dev/null 2>&1 && grunt || { echo >&2 'Grunt is not installed'; }"
   },
   "devDependencies": {
