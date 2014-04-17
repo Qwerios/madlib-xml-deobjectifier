@@ -24,7 +24,7 @@ $ npm install madlib-xml-deobjectifier --save
 
 ## usage
 ```javascript
-var deobjectifier = require "madlib-xml-deobjectifier"
+var deobjectifier = require( "madlib-xml-deobjectifier" )
 var xmlObject     =
 {
     books:
