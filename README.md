@@ -1,4 +1,8 @@
-# madlib-xml-deobjectifier [![Build Status](https://travis-ci.org/Qwerios/madlib-xml-deobjectifier.svg?branch=master)](https://travis-ci.org/Qwerios/madlib-xml-deobjectifier)
+# madlib-xml-deobjectifier
+[![Build Status](https://travis-ci.org/Qwerios/madlib-xml-deobjectifier.svg?branch=master)](https://travis-ci.org/Qwerios/madlib-xml-deobjectifier) [![NPM version](https://badge.fury.io/js/madlib-xml-deobjectifier.png)](http://badge.fury.io/js/madlib-xml-deobjectifier) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
+[![Npm Downloads](https://nodei.co/npm/madlib-xml-deobjectifier.png?downloads=true&stars=true)](https://nodei.co/npm/madlib-xml-deobjectifier.png?downloads=true&stars=true)
+
 Used to turn output from madlib-xml-objectifier into an XML string
 
 
