@@ -2,7 +2,7 @@
   "name": "madlib-xml-deobjectifier",
   "description": "Used to turn output from madlib-xml-objectifier into an XML string",
   "main": "lib/deobjectifier.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/Qwerios/madlib-xml-objectifier.git"
